@@ -41,8 +41,10 @@ function createCardDiv(card) {
     newCard.addEventListener("click", setToReplace);
 }
 
+//PUSH CLICKED CARDS INTO REPLACEMENTS ARRAY
 function setToReplace() {
     this.classList.add("to-replace");
+    replacements.push(this);
 }
 
 //newHand();
