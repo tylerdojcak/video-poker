@@ -45,6 +45,17 @@ function createCardDiv(card) {
 function setToReplace() {
     this.classList.add("to-replace");
     replacements.push(this);
+    this.addEventListener("click", unReplace);
+    this.removeEventListener("click", setToReplace);
+}
+
+//REMOVE RE-CLICKED CARDS FROM REPLACEMENT LIST
+function unReplace() {
+    this.classList.remove("to-replace");
+    let index = replacements.indexOf(this);
+    replacements.splice(index, 1);
+    this.addEventListener("click", setToReplace);
+    this.removeEventListener("click", unReplace);
 }
 
 //newHand();
