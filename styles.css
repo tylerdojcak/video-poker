@@ -13,3 +13,7 @@ body {
     height: 153px;
     background-size: cover;
 }
+
+.card.to-replace {
+    border: 2px solid white;
+}

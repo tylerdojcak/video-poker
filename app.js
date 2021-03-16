@@ -1,6 +1,7 @@
 let deckID;
 let hand;
 let handDiv = document.querySelector(".hand");
+let replacements = [];
 
 // GET A BRAND NEW DECK WITH UNIQUE IDENTIFIER
 function getNewDeck() {
@@ -37,6 +38,11 @@ function createCardDiv(card) {
     newCard.setAttribute("class", "card");
     newCard.style.backgroundImage = `url(${card.image})`;
     handDiv.appendChild(newCard);
+    newCard.addEventListener("click", setToReplace);
+}
+
+function setToReplace() {
+    this.classList.add("to-replace");
 }
 
 //newHand();
