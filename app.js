@@ -58,5 +58,13 @@ function unReplace() {
     this.removeEventListener("click", unReplace);
 }
 
+function removeReplacements() {
+
+}
+
+function reDeal() {
+
+}
+
 //newHand();
 //getNewDeck();
