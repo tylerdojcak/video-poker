@@ -22,13 +22,15 @@ async function newHand() {
     .then(data => data.json())
     .then(newHand => {
         hand = newHand.cards;
-        for (let card of hand) {
-            handCodes.push(card.code);
-        }
         handDiv.innerHTML = "";
         for (let card of hand) {
-            createCardDiv(card)
+            handCodes.push(card.code);
+            createCardDiv(card);
         }
+        /*handDiv.innerHTML = "";
+        for (let card of hand) {
+            createCardDiv(card)
+        }*/
     });
 }
 
