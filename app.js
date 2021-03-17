@@ -80,6 +80,9 @@ function reDeal() {
             handCodes.push(card.code);
             createCardDiv(card);
         }
+        for (let div of handDiv.children) {
+            div.removeEventListener("click", setToReplace);
+        }
     })
 }
 
