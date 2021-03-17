@@ -3,6 +3,7 @@ let hand;
 let handDiv = document.querySelector(".hand");
 let replacements = [];
 let handCodes = [];
+let newCards = [];
 
 // GET A BRAND NEW DECK WITH UNIQUE IDENTIFIER
 function getNewDeck() {
@@ -62,6 +63,8 @@ function removeReplacements() {
         let code = card.id;
         let index = handCodes.indexOf(code);
         handCodes.splice(index, 1);
+        let removalElement = document.getElementById(`${code}`);
+        removalElement.remove();
     }
     replacements = [];
 }
