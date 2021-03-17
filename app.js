@@ -63,7 +63,12 @@ function unReplace() {
 }
 
 function removeReplacements() {
-
+    for (let card of replacements) {
+        let code = card.id;
+        let index = handCodes.indexOf(code);
+        handCodes.splice(index, 1);
+    }
+    replacements = [];
 }
 
 function reDeal() {
