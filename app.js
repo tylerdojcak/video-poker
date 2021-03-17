@@ -2,6 +2,7 @@ let deckID;
 let hand;
 let handDiv = document.querySelector(".hand");
 let replacements = [];
+let handCodes = [];
 
 // GET A BRAND NEW DECK WITH UNIQUE IDENTIFIER
 function getNewDeck() {
@@ -20,6 +21,9 @@ async function newHand() {
     .then(data => data.json())
     .then(newHand => {
         hand = newHand.cards;
+        for (let card of hand) {
+            handCodes.push(card.code);
+        }
         handDiv.innerHTML = "";
         for (let card of hand) {
             createCardDiv(card)
