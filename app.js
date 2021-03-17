@@ -21,6 +21,8 @@ async function newHand() {
     fetch(`https://deckofcardsapi.com/api/deck/ez4gc34z2q6z/draw/?count=5`)
     .then(data => data.json())
     .then(newHand => {
+        console.log(newHand.remaining);
+        handCodes = [];
         hand = newHand.cards;
         handDiv.innerHTML = "";
         for (let card of hand) {
@@ -75,6 +77,7 @@ function reDeal() {
     fetch(`https://deckofcardsapi.com/api/deck/ez4gc34z2q6z/draw/?count=${5 - handCodes.length}`)
     .then(data => data.json())
     .then(newHandCards => {
+        console.log(newHandCards.remaining)
         newCards = newHandCards.cards;
         for (let card of newCards) {
             handCodes.push(card.code);
