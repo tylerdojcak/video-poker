@@ -4,6 +4,8 @@ let handDiv = document.querySelector(".hand");
 let replacements = [];
 let handCodes = [];
 let newCards = [];
+document.querySelector("#deal-btn").addEventListener("click", newHand);
+document.querySelector("#replace-btn").addEventListener("click", removeReplacements);
 
 // GET A BRAND NEW DECK WITH UNIQUE IDENTIFIER
 function getNewDeck() {
@@ -71,6 +73,7 @@ function removeReplacements() {
         removalElement.remove();
     }
     replacements = [];
+    reDeal();
 }
 
 function reDeal() {
