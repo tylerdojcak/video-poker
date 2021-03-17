@@ -31,11 +31,6 @@ async function newHand() {
     });
 }
 
-/*function shuffleDeck() {
-    fetch(`https://deckofcardsapi.com/api/deck/ez4gc34z2q6z/shuffle/`)
-    .then(data => data.json());
-}*/
-
 function createCardDiv(card) {
     let newCard = document.createElement("div");
     newCard.setAttribute("id", card.code)
