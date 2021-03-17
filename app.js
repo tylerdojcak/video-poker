@@ -70,7 +70,15 @@ function removeReplacements() {
 }
 
 function reDeal() {
-
+    fetch(`https://deckofcardsapi.com/api/deck/ez4gc34z2q6z/draw/?count=${5 - handCodes.length}`)
+    .then(data => data.json())
+    .then(newHandCards => {
+        newCards = newHandCards.cards;
+        for (let card of newCards) {
+            handCodes.push(card.code);
+            createCardDiv(card);
+        }
+    })
 }
 
 //newHand();
