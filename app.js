@@ -4,8 +4,12 @@ let handDiv = document.querySelector(".hand");
 let replacements = [];
 let handCodes = [];
 let newCards = [];
-document.querySelector("#deal-btn").addEventListener("click", newHand);
-document.querySelector("#replace-btn").addEventListener("click", removeReplacements);
+let dealBtn = document.querySelector("#deal-btn");
+let replaceBtn = document.querySelector("#replace-btn");
+dealBtn.addEventListener("click", newHand);
+replaceBtn.addEventListener("click", removeReplacements);
+//document.querySelector("#deal-btn").addEventListener("click", newHand);
+//document.querySelector("#replace-btn").addEventListener("click", removeReplacements);
 
 // GET A BRAND NEW DECK WITH UNIQUE IDENTIFIER
 function getNewDeck() {
@@ -31,6 +35,8 @@ async function newHand() {
             handCodes.push(card.code);
             createCardDiv(card);
         }
+        dealBtn.disabled = true;
+        replaceBtn.disabled = false;
         /*handDiv.innerHTML = "";
         for (let card of hand) {
             createCardDiv(card)
@@ -73,6 +79,8 @@ function removeReplacements() {
         removalElement.remove();
     }
     replacements = [];
+    dealBtn.disabled = false;
+    replaceBtn.disabled = true;
     reDeal();
 }
 
