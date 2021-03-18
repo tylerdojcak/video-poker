@@ -95,6 +95,31 @@ function reDeal() {
     })
 }
 
-function evaluateHand() {
+//SPLIT THE HANDCODES INTO RANKS AND SUITS
+function ranksAndSuits(hand) {
+    let ranks = [];
+    let suits = {};
+    for (let card of hand) {
+        let codes = card.split("");
+        ranks.push(codes[0]);
+        let suit = codes[1];
+        if (suit in suits) {
+            suits[suit] += 1;
+        }  else {
+            suits[suit] = 1;
+        }
+    }
+    console.log(ranks, suits);
+}
+
+function evaluateHand(hand) {
+
+}
+
+function checkStraight() {
+
+}
+
+function checkFlush() {
 
 }
