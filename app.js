@@ -8,8 +8,6 @@ let dealBtn = document.querySelector("#deal-btn");
 let replaceBtn = document.querySelector("#replace-btn");
 dealBtn.addEventListener("click", newHand);
 replaceBtn.addEventListener("click", removeReplacements);
-//document.querySelector("#deal-btn").addEventListener("click", newHand);
-//document.querySelector("#replace-btn").addEventListener("click", removeReplacements);
 
 // GET A BRAND NEW DECK WITH UNIQUE IDENTIFIER
 function getNewDeck() {
@@ -22,12 +20,11 @@ function getNewDeck() {
 
 // SHUFFLE THE DECK AND DRAW A 5-CARD HAND, THEN DISPLAY THEM ON-SCREEN
 async function newHand() {
-    //await shuffleDeck();
     await fetch(`https://deckofcardsapi.com/api/deck/ez4gc34z2q6z/shuffle/`);
     fetch(`https://deckofcardsapi.com/api/deck/ez4gc34z2q6z/draw/?count=5`)
     .then(data => data.json())
     .then(newHand => {
-        console.log(newHand.remaining);
+        //console.log(newHand.remaining);
         handCodes = [];
         hand = newHand.cards;
         handDiv.innerHTML = "";
@@ -37,10 +34,6 @@ async function newHand() {
         }
         dealBtn.disabled = true;
         replaceBtn.disabled = false;
-        /*handDiv.innerHTML = "";
-        for (let card of hand) {
-            createCardDiv(card)
-        }*/
     });
 }
 
@@ -70,6 +63,7 @@ function unReplace() {
     this.removeEventListener("click", unReplace);
 }
 
+//REMOVE SELECTED CARDS TO REPLACE
 function removeReplacements() {
     for (let card of replacements) {
         let code = card.id;
@@ -84,11 +78,12 @@ function removeReplacements() {
     reDeal();
 }
 
+//DEAL APPROPRIATE NUMBER OF NEW CARDS
 function reDeal() {
     fetch(`https://deckofcardsapi.com/api/deck/ez4gc34z2q6z/draw/?count=${5 - handCodes.length}`)
     .then(data => data.json())
     .then(newHandCards => {
-        console.log(newHandCards.remaining)
+        //console.log(newHandCards.remaining)
         newCards = newHandCards.cards;
         for (let card of newCards) {
             handCodes.push(card.code);
@@ -100,5 +95,6 @@ function reDeal() {
     })
 }
 
-//newHand();
-//getNewDeck();
+function evaluateHand() {
+
+}
