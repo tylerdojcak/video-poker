@@ -110,16 +110,21 @@ function ranksAndSuits(hand) {
         }
     }
     console.log(ranks, suits);
+    return suits;
 }
 
 function evaluateHand(hand) {
 
 }
 
-function checkStraight() {
-
+function checkFlush(suits) {
+    if (suits.length === 1) {
+        return "It's a flush!";
+    } else {
+        return "It's not a flush.";
+    }
 }
 
-function checkFlush() {
+function checkStraight() {
 
 }
