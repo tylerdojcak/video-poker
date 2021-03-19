@@ -110,14 +110,33 @@ function ranksAndSuits(hand) {
         }
     }
     console.log(ranks, suits);
-    return suits;
+    return ranks, suits;
+}
+
+function transformRanks(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === "0") {
+            arr[i] = 10;
+        } else if (arr[i] === "J") {
+            arr[i] = 11;
+        } else if (arr[i] === "Q") {
+            arr[i] = 12;
+        } else if (arr[i] === "K") {
+            arr[i] = 13;
+        } else if (arr[i] === "A") {   // ISSUE WITH ACE HERE -- HI or LO?
+            arr[i] = 14;
+        } else {
+            arr[i] = parseInt(arr[i]);
+        }
+    }
+    return arr.sort((a, b) => a - b);
 }
 
 function evaluateHand(hand) {
 
 }
 
-function checkFlush(suits) {
+function isFlush(suits) {
     if (suits.length === 1) {
         return "It's a flush!";
     } else {
