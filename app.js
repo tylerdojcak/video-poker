@@ -4,6 +4,7 @@ let handDiv = document.querySelector(".hand");
 let replacements = [];
 let handCodes = [];
 let newCards = [];
+const FIVEHIGHSTRAIGHT = ["2", "3", "4", "5", "A"];
 let dealBtn = document.querySelector("#deal-btn");
 let replaceBtn = document.querySelector("#replace-btn");
 dealBtn.addEventListener("click", newHand);
@@ -115,7 +116,7 @@ function ranksAndSuits(hand) {
 
 // TRANSFORM RANKS INTO NUMBERS AND RETURN THEM SORTED
 function transformRanks(arr) {
-    if (arr.sort() === ["2", "3", "4", "5", "A"]) {
+    if (isFiveHiStraight(arr.sort())) {
         return "It's a 5-high straight";
     } else {
         for (let i = 0; i < arr.length; i++) {
@@ -149,6 +150,10 @@ function isFlush(suits) {
     }
 }
 
-function checkStraight() {
+function isFiveHiStraight(arr1, arr2 = FIVEHIGHSTRAIGHT) {
+    return arr1.every((v, i) => v === arr2[i]);
+}
+
+function isStraight() {
 
 }
