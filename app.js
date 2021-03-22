@@ -110,8 +110,8 @@ function ranksAndSuits(hand) {
             suits[suit] = 1;
         }
     }
-    console.log(ranks, suits);
-    return ranks, suits;
+    //console.log(ranks, suits);
+    return ranks//, suits;
 }
 
 // TRANSFORM RANKS INTO NUMBERS AND RETURN THEM SORTED
@@ -155,5 +155,9 @@ function isFiveHiStraight(arr1, arr2 = FIVEHIGHSTRAIGHT) {
 }
 
 function isStraight() {
-
+    if (transformRanks(ranksAndSuits(handCodes)) === "It's a 5-high straight" || transformRanks(ranksAndSuits(handCodes))[4] - transformRanks(ranksAndSuits(handCodes))[0] === 3) {
+        return "STRAIGHT!";
+    } else  {
+        return "Not a straight.";
+    }
 }
